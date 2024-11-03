@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ConsciousCloset | Find Thrift Stores</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', Arial, sans-serif;
+            background-color: #f9f9f9; /* Light cream */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #ffffff; /* White background for header */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 2rem; /* Added padding for better spacing */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: #6c9b84; /* Sage green */
+            font-weight: 700;
+            margin-bottom: 10px; /* Spacing between logo and navigation */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between nav links */
+            margin-top: 10px; /* Margin on top of navigation */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6c9b84; /* Sage green */
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #27ae60; /* Darker green on hover */
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: center;
+            padding: 1rem; /* Added padding for better spacing */
+            background: #ffffff; /* White background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .search-box h1 {
+            color: #6c9b84; /* Sage green for heading */
+            margin-bottom: 1rem; /* Space below heading */
+        }
+
+        .search-box input {
+            padding: 10px;
+            margin: 5px 0; /* Spacing between inputs */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* Full width with padding */
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6c9b84; /* Sage green button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #27ae60; /* Darker green on hover */
+        }
+
+        .store-list {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .store-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .store-item h4 {
+            margin: 0;
+        }
+
+        .store-item p {
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: #ffffff; /* White for footer */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            color: #555; /* Dark gray for footer text */
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            .search-box h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-box input,
+            .search-box button {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ConsciousCloset</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sustainability.html">Brands Sustainability</a>
+            <a href="thrift.html">Find Thrift Stores</a>
+        </nav>
+    </header>
+
+    <div class="search-box">
+        <h1>Find Thrift Stores Near You</h1>
+        <input type="text" id="location" placeholder="Enter a location (e.g., New York)">
+        <input type="number" id="radius" placeholder="Radius in meters (e.g., 5000)">
+        <button onclick="findThriftStores()">Search</button>
+    </div>
+
+    <div class="store-list" id="store-list">
+        <!-- Store results will appear here -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Conscious Closet. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function findThriftStores() {
+            const location = document.getElementById('location').value;
+            const radius = document.getElementById('radius').value || 5000;
+
+            try {
+                const response = await fetch(`/api/thrift-stores?location=${encodeURIComponent(location)}&radius=${radius}`);
+                const data = await response.json();
+                const storeList = document.getElementById('store-list');
+                storeList.innerHTML = '';
+
+                if (data.success) {
+                    data.data.forEach(store => {
+                        const storeItem = document.createElement('div');
+                        storeItem.className = 'store-item';
+                        storeItem.innerHTML = `<h4>${store.name}</h4><p>${store.address}</p>`;
+                        storeList.appendChild(storeItem);
+                    });
+                } else {
+                    alert('Failed to fetch thrift stores: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error fetching thrift stores:', error);
+            }
+        }
+    </script>
+</body>
+</html>

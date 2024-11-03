@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="title" content="ConsciousCloset | Home">
+    <title>ConsciousCloset | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', Arial, sans-serif;
+            background-color: #f5f5f5; /* Light cream */
+            color: rgb(59, 59, 59);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6c9b84; /* Sage green */
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #6c9b84; /* Sage green */
+        }
+
+        .hero {
+            background: #d9e9d9; /* Light sage green */
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #6c9b84;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: #555;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .section h2 {
+            color: #6c9b84; /* Sage green */
+            font-weight: 600;
+        }
+
+        .section p {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6c9b84; /* Sage green */
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px; /* More rounded buttons for a "bubbly" feel */
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #5a7f68; /* Darker sage green */
+        }
+
+        footer {
+            background: #a0b693;
+            padding: 1rem 2rem;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            margin-top: 2rem;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">ConsciousCloset</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sustainability.html">Sustainable Brands</a>
+            <a href="thrift.html">Find Thrift Stores</a>
+        </nav>
+    </header>
+
+    
+        <div class="hero">
+            <h1>Welcome to ConsciousCloset</h1>
+            <p>Your go-to platform for sustainable fashion and thrift store discovery.</p>
+            <img src="logopic.jpg" alt="A welcoming image" style="max-width: 25%; height: 5%; border-radius: 10px; margin-bottom: 1rem;">
+
+        </div>
+        
+
+    <div class="content">
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>At ConsciousCloset, our mission is to empower consumers to make more sustainable fashion choices. By offering an easy-to-use platform that evaluates the sustainability of clothing brands and connects users with nearby thrift stores, we aim to promote mindful shopping and a greener future for fashion.</p>
+        </div>
+        <div class="section">
+            <h2>Rating Scale</h2>
+            <ul>
+                <li><strong>1:</strong> Not Good – The brand lacks transparency and fails to demonstrate any significant efforts toward ethical practices or sustainability.</li>
+                <li><strong>2:</strong> Somewhat Ethical – The brand shows minimal commitment to sustainability, using limited sustainable materials but lacking a comprehensive approach.</li>
+                <li><strong>3:</strong> Moderately Ethical – The brand is somewhat transparent about its practices and makes efforts to reduce its environmental impact.</li>
+                <li><strong>4:</strong> Ethical – The brand follows responsible practices, ensuring fair treatment of workers and a focus on sustainable sourcing.</li>
+                <li><strong>5:</strong> Exceptional – The brand is a leader in sustainability, actively working to minimize its environmental footprint and promote ethical practices throughout its supply chain.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>About Us & Our Technology</h2>
+            <p>ConsciousCloset is dedicated to simplifying the journey toward sustainable fashion. We believe that transparency is key to making informed choices. Our platform uses advanced technology to evaluate the sustainability of brands based on their online presence and practices.</p>
+            <p>Simply input the URL of a clothing brand, and our system analyzes available data to provide you with a sustainability rating. We look at factors like material sourcing, manufacturing processes, and transparency to ensure you get an accurate picture of each brand’s commitment to sustainability.</p>
+        </div>
+        <div class="section">
+            <h2>Find Thrift Stores Near You</h2>
+            <p>Discover local thrift stores that offer quality second-hand items and give a second life to fashion. Reduce waste and find unique pieces near you!</p>
+            <a href="thrift.html" class="btn">Find Stores</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ConsciousCloset. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
